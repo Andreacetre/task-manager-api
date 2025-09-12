@@ -5,12 +5,22 @@ import User from '../models/User';
 const JWT_SECRET: jwt.Secret = process.env.JWT_SECRET || 'secret';
 const JWT_EXPIRES_IN: string = process.env.JWT_EXPIRES_IN || '1d';
 
-// Generar token
+/**
+ * Genera un JWT para un usuario
+ * @param userId - ID del usuario
+ * @returns token JWT
+ */
 function generateToken(userId: string) {
   return jwt.sign({ id: userId }, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
 }
 
-// Registro
+/**
+ * Registro de usuario
+ * @route POST /api/auth/register
+ * @param req.body.email - Email del usuario
+ * @param req.body.password - Contraseña del usuario
+ * @returns {token} JWT del usuario creado
+ */
 export const register = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;
@@ -27,7 +37,13 @@ export const register = async (req: Request, res: Response) => {
   }
 };
 
-// Login
+/**
+ * Login de usuario
+ * @route POST /api/auth/login
+ * @param req.body.email - Email del usuario
+ * @param req.body.password - Contraseña del usuario
+ * @returns {token} JWT si credenciales son válidas
+ */
 export const login = async (req: Request, res: Response) => {
   try {
     const { email, password } = req.body;

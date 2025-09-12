@@ -1,6 +1,13 @@
 import { Request, Response, NextFunction } from 'express';
 
-// Middleware global de manejo de errores
+/**
+ * Middleware global de manejo de errores
+ * @param err - Error capturado
+ * @param req - Objeto de solicitud de Express
+ * @param res - Objeto de respuesta de Express
+ * @param next - Función para pasar al siguiente middleware
+ * @returns JSON con status code y mensaje de error
+ */
 export const errorHandler = (
   err: any,
   req: Request,

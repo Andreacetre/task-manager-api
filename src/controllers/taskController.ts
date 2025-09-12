@@ -1,7 +1,14 @@
 import { Request, Response } from 'express';
 import Task from '../models/Task';
 
-// Crear tarea
+/**
+ * Crear una nueva tarea
+ * @route POST /api/tasks
+ * @param req.body.title - Título de la tarea
+ * @param req.body.description - Descripción de la tarea
+ * @param req.body.dueDate - Fecha de vencimiento
+ * @returns {Task} Tarea creada
+ */
 export const createTask = async (req: Request, res: Response) => {
   try {
     const userId = (req as any).user.id;
@@ -13,7 +20,11 @@ export const createTask = async (req: Request, res: Response) => {
   }
 };
 
-// Listar tareas del usuario autenticado
+/**
+ * Listar todas las tareas del usuario autenticado
+ * @route GET /api/tasks
+ * @returns {Task[]} Lista de tareas
+ */
 export const getTasks = async (req: Request, res: Response) => {
   try {
     const userId = (req as any).user.id;
@@ -24,7 +35,12 @@ export const getTasks = async (req: Request, res: Response) => {
   }
 };
 
-// Obtener tarea por ID
+/**
+ * Obtener una tarea por ID
+ * @route GET /api/tasks/:id
+ * @param req.params.id - ID de la tarea
+ * @returns {Task} Tarea encontrada
+ */
 export const getTask = async (req: Request, res: Response) => {
   try {
     const userId = (req as any).user.id;
@@ -37,7 +53,13 @@ export const getTask = async (req: Request, res: Response) => {
   }
 };
 
-// Actualizar tarea
+/**
+ * Actualizar una tarea
+ * @route PUT /api/tasks/:id
+ * @param req.params.id - ID de la tarea
+ * @param req.body - Campos a actualizar
+ * @returns {Task} Tarea actualizada
+ */
 export const updateTask = async (req: Request, res: Response) => {
   try {
     const userId = (req as any).user.id;
@@ -53,7 +75,12 @@ export const updateTask = async (req: Request, res: Response) => {
   }
 };
 
-// Eliminar tarea
+/**
+ * Eliminar una tarea
+ * @route DELETE /api/tasks/:id
+ * @param req.params.id - ID de la tarea
+ * @returns {message} Confirmación de eliminación
+ */
 export const deleteTask = async (req: Request, res: Response) => {
   try {
     const userId = (req as any).user.id;
