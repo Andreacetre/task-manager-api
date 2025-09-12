@@ -1,10 +1,10 @@
-#  Task Manager API
+# Task Manager API
 
 API REST para la gestión de tareas con autenticación de usuarios, desarrollada con **Node.js, Express, TypeScript, MongoDB y JWT**.
 
 ---
 
-##  Tecnologías utilizadas
+## Tecnologías utilizadas
 
 - [Node.js](https://nodejs.org/)
 - [Express](https://expressjs.com/)
@@ -17,7 +17,7 @@ API REST para la gestión de tareas con autenticación de usuarios, desarrollada
 
 ---
 
-##  Estructura del proyecto
+## Estructura del proyecto
 
 ```plaintext
 task-manager-api/
@@ -34,35 +34,42 @@ task-manager-api/
 └─ README.md
 
 Instalación y configuración
-
-1️ Clonar el repositorio
-git clone <url-del-repo>
+1* Clonar el repositorio:
+git clone https://github.com/Andreacetre/task-manager-api.git
 cd task-manager-api
 
-2️ Instalar dependencias
+2️* Instalar dependencias
 npm install
 
-3️ Configurar variables de entorno
+3️* Configurar variables de entorno
+
+Copia el archivo de ejemplo:
 
 cp .env.example .env
+
+
+Configura tus variables:
+
 PORT=3000
 MONGO_URI=mongodb+srv://<usuario>:<password>@cluster0.mongodb.net/taskdb
 JWT_SECRET=supersecreto
 JWT_EXPIRES_IN=1d
 
-4️ Ejecutar el servidor en modo desarrollo
+
+4️* Ejecutar el servidor en modo desarrollo
 npm run dev
 
+El servidor se levantará en http://localhost:3000.
+
 Endpoints principales
- Autenticación
+
+Autenticación
 
 POST /api/auth/register → Registro de usuario
 
 POST /api/auth/login → Login de usuario (devuelve JWT)
 
- Tareas
-
-(requieren autenticación con Authorization: Bearer <token>)
+Tareas (requieren JWT en Authorization: Bearer <token>)
 
 POST /api/tasks → Crear una nueva tarea
 
@@ -74,32 +81,48 @@ PUT /api/tasks/:id → Actualizar una tarea
 
 DELETE /api/tasks/:id → Eliminar una tarea
 
- Documentación Swagger
+Documentación Swagger
 
-La documentación interactiva está disponible en:
+URL: http://localhost:3000/api-docs
 
- http://localhost:3000/api-docs
+Permite probar todos los endpoints directamente y usar el JWT con el botón Authorize.
 
-Desde allí puedes probar todos los endpoints directamente e incluso añadir tu JWT en el botón Authorize.
+Scripts disponibles
+npm run dev   # Ejecuta el servidor en modo desarrollo con hot reload
+npm run build # Compila TypeScript a JavaScript en dist/
+npm start     # Ejecuta la versión compilada (dist/index.js)
 
- Scripts disponibles
+Pruebas con Postman
 
-npm run dev → Ejecuta el servidor en modo desarrollo con hot reload.
+Registrar usuario: POST /api/auth/register
 
-npm run build → Compila TypeScript a JavaScript en dist/.
+Hacer login: POST /api/auth/login → Copiar el JWT
 
-npm start → Ejecuta la versión compilada (dist/index.js).
+Usar JWT en Authorization: Bearer <token> para probar endpoints de tareas
 
- Video de demostración
+Crear, listar, actualizar y eliminar tareas
 
-En el video se debe mostrar:
+Prompts de IA utilizados
 
-La estructura del proyecto en VSCode.
+"Crea un middleware de manejo de errores para Express con TypeScript"
 
-Cómo levantar la API (npm run dev).
+"Genera types.d.ts para una API de tareas y usuarios"
 
-Ejemplo de registro/login de usuario en Postman.
 
-Uso del JWT para crear y listar tareas.
+Historial de commits
+feat(auth): agregar registro e inicio de sesión con JWT
+feat(tasks): crear endpoints CRUD de tareas
+fix(middleware): corregir manejo de errores en errorHandler
+docs(readme): agregar instrucciones de instalación y uso
+chore: agregar archivos de configuración y estructura general
 
-Navegación en la documentación de Swagger (/api-docs).
+
+Buenas prácticas
+
+Código limpio y modular siguiendo MVC (Models, Controllers, Routes)
+
+Manejo de errores centralizado con middlewares
+
+Validación de datos con express-validator
+
+Uso de TypeScript para tipado fuerte y seguridad en desarrollo
