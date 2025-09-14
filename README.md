@@ -84,6 +84,7 @@ DELETE /api/tasks/:id → Eliminar una tarea
 Documentación Swagger
 
 URL: http://localhost:3000/api-docs
+Producción (Render): https://task-manager-api-iup0.onrender.com/api-docs
 
 Permite probar todos los endpoints directamente y usar el JWT con el botón Authorize.
 
@@ -91,6 +92,19 @@ Scripts disponibles
 npm run dev   # Ejecuta el servidor en modo desarrollo con hot reload
 npm run build # Compila TypeScript a JavaScript en dist/
 npm start     # Ejecuta la versión compilada (dist/index.js)
+
+Despliegue en Render
+
+La API está desplegada en:
+https://task-manager-api-iup0.onrender.com
+
+Endpoints de ejemplo:
+
+Registro: POST https://task-manager-api-iup0.onrender.com/api/auth/register
+
+Login: POST https://task-manager-api-iup0.onrender.com/api/auth/login
+
+Tareas: GET https://task-manager-api-iup0.onrender.com/api/tasks
 
 Cambios importantes
 
@@ -131,11 +145,15 @@ chore: agregar archivos de configuración y estructura general
 
 Buenas prácticas
 
-Código limpio y modular siguiendo MVC (Models, Controllers, Routes)
+Código limpio y modular siguiendo MVC (Models, Controllers, Routes).
 
-Manejo de errores centralizado con middlewares
+Manejo de errores centralizado con middlewares.
 
-Validación de datos con express-validator
+Validación de datos con express-validator.
 
-Uso de TypeScript para tipado fuerte y seguridad en desarrollo
+Uso de TypeScript para tipado fuerte y seguridad en desarrollo.
+
+Documentación automática con Swagger.
+
+Preparado para desarrollo (dev) y producción (build/start).
 
