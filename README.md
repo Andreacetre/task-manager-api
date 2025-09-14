@@ -3,6 +3,20 @@
 API REST para la gestión de tareas con autenticación de usuarios, desarrollada con **Node.js, Express, TypeScript, MongoDB y JWT**.
 
 ---
+## Índice
+- [Tecnologías utilizadas](#tecnologías-utilizadas)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Instalación y configuración](#instalación-y-configuración)
+- [Endpoints principales](#endpoints-principales)
+- [Documentación Swagger](#documentación-swagger)
+- [Scripts disponibles](#scripts-disponibles)
+- [Despliegue en Render](#despliegue-en-render)
+- [Cambios importantes](#cambios-importantes)
+- [Pruebas con Postman](#pruebas-con-postman)
+- [Prompts de IA utilizados](#prompts-de-ia-utilizados)
+- [Historial de commits](#historial-de-commits)
+- [Buenas prácticas](#buenas-prácticas)
+- [Asistencia con IA](#asistencia-con-ia)
 
 ## Tecnologías utilizadas
 
@@ -36,7 +50,7 @@ task-manager-api/
 Instalación y configuración
 1* Clonar el repositorio:
 git clone https://github.com/Andreacetre/task-manager-api.git
-cd task-manager-api
+ cd task-manager-api
 
 2️* Instalar dependencias
 npm install
@@ -157,3 +171,9 @@ Documentación automática con Swagger.
 
 Preparado para desarrollo (dev) y producción (build/start).
 
+## Prompts de IA utilizados
+
+- "Crea un middleware de manejo de errores para Express con TypeScript."
+- "Genera types.d.ts para una API de tareas y usuarios."
+- "Agrega documentación Swagger con JSDoc para los endpoints de autenticación y tareas."
+- "Explica cómo configurar npm run dev, npm run build y npm start en un proyecto con TypeScript."
