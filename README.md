@@ -149,12 +149,19 @@ Prompts de IA utilizados
 "Genera types.d.ts para una API de tareas y usuarios"
 
 
-Historial de commits
-feat(auth): agregar registro e inicio de sesión con JWT
-feat(tasks): crear endpoints CRUD de tareas
-fix(middleware): corregir manejo de errores en errorHandler
-docs(readme): agregar instrucciones de instalación y uso
-chore: agregar archivos de configuración y estructura general
+## Historial de commits
+
+- feat(auth): agregar registro e inicio de sesión con JWT  
+- feat(tasks): crear endpoints CRUD de tareas  
+- fix(middleware): corregir manejo de errores en errorHandler  
+- docs(readme): agregar instrucciones de instalación y uso  
+- docs(swagger): agregar configuración de Swagger y documentación de endpoints  
+- chore: agregar archivos de configuración y estructura general  
+- chore(deploy): configurar proyecto para despliegue en Render  
+- refactor(authController): organizar lógica y manejo de JWT  
+- refactor(routes): separar rutas de auth y tasks  
+- test(api): agregar colección de pruebas en Postman  
+
 
 
 Buenas prácticas
@@ -177,3 +184,59 @@ Preparado para desarrollo (dev) y producción (build/start).
 - "Genera types.d.ts para una API de tareas y usuarios."
 - "Agrega documentación Swagger con JSDoc para los endpoints de autenticación y tareas."
 - "Explica cómo configurar npm run dev, npm run build y npm start en un proyecto con TypeScript."
+
+## Pruebas y cobertura
+
+Este proyecto incluye **pruebas unitarias y de integración** usando **Jest** y **Supertest**.
+
+### Ejecutar tests
+
+Para correr todos los tests:
+npm test
+
+Para correr tests en modo interactivo (watch):
+
+npm run test:watch
+
+Cobertura de código
+
+Para generar el reporte de cobertura:
+
+npm test -- --coverage
+
+Esto mostrará un resumen en consola y creará un reporte detallado en coverage/lcov-report/index.html.
+
+Qué se prueba
+Auth API
+
+Registro de usuarios
+
+Inicio de sesión y obtención de JWT
+
+Manejo de credenciales incorrectas
+
+Tasks API
+
+Creación de tareas
+
+Listado de tareas
+
+Actualización de tareas
+
+Eliminación de tareas
+
+Utils
+
+Hash de contraseñas con bcrypt
+
+Encriptación
+
+Validación de contraseñas correctas e incorrectas
+
+Consideraciones
+
+Las pruebas se ejecutan contra la base de datos definida en .env (MONGO_URI).
+
+Se recomienda usar una base de datos de pruebas para no afectar datos reales.
+
+Los tests de integración usan JWT dinámico para probar endpoints protegidos.
