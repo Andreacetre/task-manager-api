@@ -1,5 +1,5 @@
-// usa require porque swagger-jsdoc es CommonJS
-const swaggerJsdoc = require('swagger-jsdoc');
+// src/swagger.ts
+import swaggerJSDoc from 'swagger-jsdoc';
 
 const options = {
   definition: {
@@ -7,22 +7,30 @@ const options = {
     info: {
       title: 'Task Manager API',
       version: '1.0.0',
-      description: 'API para gestión de tareas con autenticación y autorización'
+      description: 'API para gestión de tareas con autenticación y autorización',
     },
     servers: [
-      { url: 'http://localhost:3000' }
+      { url: 'http://localhost:3000', description: 'Servidor local' },
+      { url: 'https://task-manager-api-iup0.onrender.com', description: 'Servidor en Render' },
     ],
     components: {
       securitySchemes: {
         bearerAuth: {
           type: 'http',
           scheme: 'bearer',
-          bearerFormat: 'JWT'
-        }
-      }
-    }
+          bearerFormat: 'JWT',
+        },
+      },
+    },
+    security: [
+      {
+        bearerAuth: [],
+      },
+    ],
   },
-  apis: ['./src/routes/*.ts'], // aquí buscará tus comentarios JSDoc
+  apis: ['./src/routes/*.ts'], // busca los JSDoc en las rutas
 };
 
-export default swaggerJsdoc(options);
+const swaggerSpec = swaggerJSDoc(options);
+
+export default swaggerSpec;

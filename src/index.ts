@@ -9,6 +9,7 @@ import taskRoutes from './routes/tasks';
 
 import { errorHandler } from './middlewares/errorHandler';
 import { notFound } from './middlewares/notFound';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -16,6 +17,16 @@ const app = express();
 
 // Middlewares globales
 app.use(express.json());
+
+// Configuración de CORS: solo permite local y Render
+app.use(cors({
+  origin: [
+    'http://localhost:3000',
+    'https://task-manager-api-iup0.onrender.com'
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 
 // Rutas
 app.use('/api/auth', authRoutes);
