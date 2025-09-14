@@ -1,24 +1,17 @@
 {
   "compilerOptions": {
-    /* File Layout */
-    "rootDir": "./", // Set rootDir to project root to include both src and tests
+    "rootDir": "./src",
     "outDir": "./dist",
-
-    /* Environment Settings */
     "module": "CommonJS",
     "target": "ES2020",
     "moduleResolution": "node",
     "types": ["node", "jest"],
-
-    /* Other Outputs */
     "sourceMap": true,
-
-    /* Recommended Options */
     "strict": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
   },
-  "include": ["src", "tests"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "tests"]
 }

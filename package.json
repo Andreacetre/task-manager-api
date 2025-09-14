@@ -1,18 +1,14 @@
 {
   "name": "task-manager-api",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
- "scripts": {
-  "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
-  "build": "tsc",
-  "start": "node dist/index.js",
-  "test": "jest --runInBand",
-  "test:watch": "jest --watchAll"
-},
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "jest --runInBand",
+    "test:watch": "jest --watchAll"
+  },
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
