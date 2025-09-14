@@ -1,2 +1,8 @@
-node_modules/
+# Dependencias
+/node_modules
+
+# Build
+/dist
+
+# Variables de entorno
 .env

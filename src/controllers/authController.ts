@@ -11,8 +11,13 @@ const JWT_EXPIRES_IN: string = process.env.JWT_EXPIRES_IN || '1d';
  * @returns token JWT
  */
 function generateToken(userId: string) {
-  return jwt.sign({ id: userId }, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
+  return jwt.sign(
+    { id: userId },
+    JWT_SECRET as string,               // 👈 forzamos a string
+    { expiresIn: JWT_EXPIRES_IN } as jwt.SignOptions // 👈 aclaramos tipo de las opciones
+  );
 }
+
 
 /**
  * Registro de usuario

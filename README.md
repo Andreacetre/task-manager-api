@@ -92,6 +92,18 @@ npm run dev   # Ejecuta el servidor en modo desarrollo con hot reload
 npm run build # Compila TypeScript a JavaScript en dist/
 npm start     # Ejecuta la versión compilada (dist/index.js)
 
+Cambios importantes
+
+ Se realizó una modificación en authController.ts para organizar la compilación y asegurar que el proyecto pueda ejecutarse correctamente en las tres rutas:
+
+npm run dev → ejecución en desarrollo con recarga automática.
+
+npm run build → genera el directorio dist/ con los archivos compilados (models, controllers, routes, config, index, swagger en formato .js).
+
+npm start → corre el proyecto ya compilado desde dist/index.js.
+
+Esto garantiza que el proyecto pueda usarse tanto en desarrollo como en producción sin errores de compilación.
+
 Pruebas con Postman
 
 Registrar usuario: POST /api/auth/register
@@ -126,3 +138,4 @@ Manejo de errores centralizado con middlewares
 Validación de datos con express-validator
 
 Uso de TypeScript para tipado fuerte y seguridad en desarrollo
+
